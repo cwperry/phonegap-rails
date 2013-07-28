@@ -7,7 +7,7 @@ namespace :phonegap do
       unless config.nil? or config === false
         unless config['phonegap_path'].nil?
           phonegap_path = config['phonegap_path']
-          scripts_path = phonegap_path + '/lib/android/bin'
+          scripts_path = phonegap_path
         end
         main_activity = Rails.application.class.to_s.split("::").first
         project_path = 'phonegap/android/' + main_activity
@@ -35,7 +35,7 @@ namespace :phonegap do
           abort
         end
         puts "Creating android project"     
-        command = "#{scripts_path}/create #{project_path} #{package} #{main_activity}"
+        command = "#{scripts_path} create #{project_path} #{package} #{main_activity}"
         puts "creating project: #{command}"
         puts `#{command}`
       end
