@@ -43,6 +43,7 @@ namespace :phonegap do
       task :export => :environment do
         puts "Exporting android project"
         environment = Rails.application.assets
+        puts "environment = " + environment
         ## Export js assets
         puts '* javascript assets'
         file = File.open("#{project_path}/assets/www/js/application.js", "w")
