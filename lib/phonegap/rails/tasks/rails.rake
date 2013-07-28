@@ -42,17 +42,17 @@ namespace :phonegap do
       desc 'export application assets to android phonegap project'
       task :export => :environment do
         puts "Exporting android project"
-        environment = Rails.application.assets
-        puts "environment = " + environment
+        assets_path = Rails.application.assets
+        puts "assets_path = " + assets_path
         ## Export js assets
         puts '* javascript assets'
         file = File.open("#{project_path}/assets/www/js/application.js", "w")
-        file.write environment['application.js']
+        file.write assets_path['application.js']
         file.close
         ## Export css assets
         puts '* css assets'
         file = File.open("#{project_path}/assets/www/css/application.css", "w")
-        file.write environment['application.css']
+        file.write assets_path['application.css']
         file.close
         ## Export images and fonts
         puts '* images and fonts'
